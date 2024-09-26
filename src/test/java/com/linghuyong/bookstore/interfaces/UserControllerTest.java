@@ -33,9 +33,10 @@ public class UserControllerTest {
     @Test
     public void register() throws Exception {
         Gson gson = new Gson();
+        String username = String.format("test_%d", System.currentTimeMillis());
         UserDTO userDTO = new UserDTO();
-        userDTO.setUsername("test");
-        userDTO.setEmail("test@hotmail.com");
+        userDTO.setUsername(username);
+        userDTO.setEmail(String.format("%s@hotamil.com", username));
         userDTO.setPassword("test@123456");
 
         MockHttpServletResponse response = mockMvc.perform(
