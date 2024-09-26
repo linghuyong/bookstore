@@ -1,4 +1,4 @@
-create table main.Author
+create table Author
 (
     id   INTEGER
         constraint author_pk
@@ -6,7 +6,7 @@ create table main.Author
     name varchar(255) not null
 );
 
-create table main.Book
+create table Book
 (
     id             INTEGER
         constraint book_pk
@@ -20,27 +20,33 @@ create table main.Book
     classification integer       not null
 );
 
-create table main.User
+create table OrderT
+(
+    id           INTEGER
+        constraint order_pk
+            primary key autoincrement,
+    book_id      bigint    not null,
+    user_id      bigint    not null,
+    price        double    not null,
+    status       integer   not null,
+    created_time timestamp not null,
+    updated_time timestamp not null
+);
+
+create index OrderT_user_id_book_id_index
+    on OrderT (user_id, book_id);
+
+create table User
 (
     id       INTEGER
         constraint user_pk
             primary key autoincrement,
-    username varchar(255) UNIQUE,
-    email    varchar(255) UNIQUE,
+    username varchar(255)
+        unique,
+    email    varchar(255)
+        unique,
     password varchar(255) not null,
     salt     varchar(255) not null,
     enable   bool         not null
-);
-
-create table main.OrderT
-(
-    id       INTEGER
-        constraint order_pk
-            primary key autoincrement,
-    book_id      bigint        not null,
-    user_id      bigint        not null,
-    price          double        not null,
-    status integer       not null,
-    created_time   timestamp     not null
 );
 
