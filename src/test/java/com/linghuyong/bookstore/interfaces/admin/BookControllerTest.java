@@ -78,6 +78,7 @@ public class BookControllerTest {
                                 .characterEncoding(StandardCharsets.UTF_8)
                 )
                 .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(jsonPath("$.status").value("FAILED"))
                 .andReturn().getResponse();
         System.out.println(response.getContentAsString());
     }
@@ -166,6 +167,7 @@ public class BookControllerTest {
                                 .characterEncoding(StandardCharsets.UTF_8)
                 )
                 .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(jsonPath("$.status").value("FAILED"))
                 .andReturn().getResponse();
         System.out.println(response.getContentAsString());
     }

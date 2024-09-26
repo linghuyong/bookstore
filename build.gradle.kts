@@ -36,7 +36,6 @@ dependencies {
     implementation("com.baomidou:mybatis-plus-spring-boot3-starter:3.5.7")
     implementation("org.testng:testng:7.1.0")
     compileOnly("org.projectlombok:lombok")
-    developmentOnly("org.springframework.boot:spring-boot-docker-compose")
     annotationProcessor("org.projectlombok:lombok")
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
